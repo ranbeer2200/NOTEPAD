@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> NOTEPAD</title>
+<style>
+    body {
+        background-color: yellow;
+    }
+
+    body.dark {
+        background-color: black;
+        color: white;
+    }
+    textarea {
+height: 200px;
+width: 100%;
+padding: 10px;
+font-size: 10px;
+ background-color: rebeccapurple;
+ color: white;
+    }
+
+    button {
+        height: 50px;
+        width: 100px;
+      padding: 15px;
+      font-size: 10px; 
+
+    }
+
+
+</style>
+</head>
+<body>
+ <h1 align="center"> YOUR NOTEPAD</h1>
+ <textarea id = "note" placeholder="Start Typing"></textarea><br>
+ <button onclick="saveNote()"> S</button>
+ <button  onclick="clearNote()">C</button>
+<button onclick="darkmode()">Dark Mode</button>
+
+
+
+
+
+
+    <script>
+      window.onload = function () {
+    const saved = localStorage.getItem("my note");
+    if (saved) {
+      document.getElementById("note").value = saved;
+    }
+  };
+
+      function saveNote(){
+        const content= document.getElementById("note").value;
+        localStorage.setItem("my note", content);
+        alert("!NOTE SAVED")
+      }
+      function clearNote(){
+        document.getElementById("note").value= "";
+        localStorage.removeItem("my note");
+      }
+        function darkmode(){
+         document.body.classList.toggle("dark");
+        }
+    </script>
+</body>
+</html>
